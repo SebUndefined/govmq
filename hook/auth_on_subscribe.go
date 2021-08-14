@@ -1,6 +1,6 @@
 package hook
 
-type AuthOnSubscribe struct {
+type AuthOnSubscribeWH struct {
 	BaseWebHook
 	Username string `json:"username,omitempty"`
 }
