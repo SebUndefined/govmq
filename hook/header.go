@@ -3,7 +3,7 @@ package hook
 /*type WebHookHeader int
 
 const (
-	Auth_on_register WebHookHeader = iota
+	Auth_On_Register WebHookHeader = iota
 	AuthOnSubscribe
 	AuthOnPublish
 	OnRegister
