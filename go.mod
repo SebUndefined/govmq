@@ -1,3 +1,3 @@
-module github.com/SebUndefined/govmq/v1
+module github.com/SebUndefined/govmq
 
 go 1.16

@@ -11,11 +11,11 @@ package hook
 //this would allow subsequent plugins in the chain to validate this client. If no plugin is able
 //to validate the client it gets automatically rejected.
 type AuthOnRegister struct {
-	MountPoint   string `json:"mountpoint,omitempty"`
+	MountPoint   string `json:"mountpoint"`
 	ClientId     string `json:"client_id,omitempty"`
-	Username     string `json:"username,omitempty"`
-	Password     string `json:"password,omitempty"`
-	PeerAddress  string `json:"peer_address,omitempty"`
+	Username     string `json:"username"`
+	Password     string `json:"password"`
+	PeerAddress  string `json:"peer_addr,omitempty"`
 	PeerPort     int    `json:"peer_port,omitempty"`
 	CleanSession bool   `json:"clean_session,omitempty"`
 }
