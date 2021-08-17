@@ -1,6 +1,6 @@
 package hook
 
-type WebHookHeader int
+/*type WebHookHeader int
 
 const (
 	Auth_on_register WebHookHeader = iota
@@ -32,4 +32,4 @@ func (whh WebHookHeader) String() string {
 		return ""
 	}
 	return states[whh]
-}
+}*/
