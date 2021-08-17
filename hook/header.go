@@ -31,6 +31,5 @@ func (whh WebHookHeader) String() string {
 	if len(states) < int(whh) {
 		return ""
 	}
-
 	return states[whh]
 }
