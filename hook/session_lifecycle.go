@@ -12,7 +12,7 @@ package hook
 //to validate the client it gets automatically rejected.
 type AuthOnRegister struct {
 	MountPoint   string `json:"mountpoint"`
-	ClientId     string `json:"client_id,omitempty"`
+	ClientId     string `json:"client_id"`
 	Username     string `json:"username"`
 	Password     string `json:"password"`
 	PeerAddress  string `json:"peer_addr,omitempty"`
