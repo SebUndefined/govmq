@@ -11,13 +11,13 @@ package hook
 //this would allow subsequent plugins in the chain to validate this client. If no plugin is able
 //to validate the client it gets automatically rejected.
 type AuthOnRegister struct {
-	MountPoint   string `json:"mountpoint"`
+	MountPoint   string `json:"mountpoint",validate:"required"`
 	ClientId     string `json:"client_id"`
 	Username     string `json:"username"`
 	Password     string `json:"password"`
-	PeerAddress  string `json:"peer_addr,omitempty"`
-	PeerPort     int    `json:"peer_port,omitempty"`
-	CleanSession bool   `json:"clean_session,omitempty"`
+	PeerAddress  string `json:"peer_addr"`
+	PeerPort     int    `json:"peer_port"`
+	CleanSession bool   `json:"clean_session"`
 }
 
 // OnClientWakeUp : Once a new client was successfully authenticated and the above
@@ -31,8 +31,8 @@ type AuthOnRegister struct {
 //the client has reached a completely initialized, normal state for accepting messages.
 //The hook is specified in the Erlang behaviour on_client_wakeup_hook available in the vernemq_dev repo.
 type OnClientWakeUp struct {
-	MountPoint string `json:"mountpoint,omitempty"`
-	ClientId   string `json:"client_id,omitempty"`
+	MountPoint string `json:"mountpoint"`
+	ClientId   string `json:"client_id"`
 }
 
 // OnRegister : The on_register hook allow your plugin to get informed about
@@ -40,11 +40,11 @@ type OnClientWakeUp struct {
 // (https://github.com/vernemq/vernemq_dev/blob/master/src/on_register_hook.erl)
 //available in the vernemq_dev repo.
 type OnRegister struct {
-	MountPoint  string `json:"mountpoint,omitempty"`
-	ClientId    string `json:"client_id,omitempty"`
-	Username    string `json:"username,omitempty"`
-	Password    string `json:"password,omitempty"`
-	PeerAddress string `json:"peer_address,omitempty"`
+	MountPoint  string `json:"mountpoint"`
+	ClientId    string `json:"client_id"`
+	Username    string `json:"username"`
+	Password    string `json:"password"`
+	PeerAddress string `json:"peer_address"`
 }
 
 // OnClientOffline : This hook is called if an MQTT 3.1/3.1.1 client using clean_session=false
@@ -53,8 +53,8 @@ type OnRegister struct {
 //(https://github.com/vernemq/vernemq_dev/blob/master/src/on_client_offline_hook.erl)
 //available in the vernemq_dev repo.
 type OnClientOffline struct {
-	MountPoint string `json:"mountpoint,omitempty"`
-	ClientId   string `json:"client_id,omitempty"`
+	MountPoint string `json:"mountpoint"`
+	ClientId   string `json:"client_id"`
 }
 
 // OnClientGone : This hook is called if an MQTT 3.1/3.1.1 client using clean_session=true or an MQTT 5.0
@@ -63,6 +63,6 @@ type OnClientOffline struct {
 //(https://github.com/vernemq/vernemq_dev/blob/master/src/on_client_gone_hook.erl)
 //available in the vernemq_dev repo.
 type OnClientGone struct {
-	MountPoint string `json:"mountpoint,omitempty"`
-	ClientId   string `json:"client_id,omitempty"`
+	MountPoint string `json:"mountpoint"`
+	ClientId   string `json:"client_id"`
 }
