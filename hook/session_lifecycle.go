@@ -1,5 +1,7 @@
 package hook
 
+import "github.com/SebUndefined/govmq/tools"
+
 // AuthOnRegister : The auth_on_register hook allow your plugin to grant or reject new client connections.
 //Moreover, it lets you exert fine-grained control over the configuration of the client session.
 //The auth_on_register hook is specified in the Erlang behaviour auth_on_register_hook
@@ -31,8 +33,8 @@ type AuthOnRegister struct {
 //the client has reached a completely initialized, normal state for accepting messages.
 //The hook is specified in the Erlang behaviour on_client_wakeup_hook available in the vernemq_dev repo.
 type OnClientWakeUp struct {
-	MountPoint string `json:"mountpoint"`
-	ClientId   string `json:"client_id"`
+	MountPoint tools.JSONString `json:"mountpoint"`
+	ClientId   string           `json:"client_id"`
 }
 
 // OnRegister : The on_register hook allow your plugin to get informed about
