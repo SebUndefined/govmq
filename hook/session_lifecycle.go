@@ -11,7 +11,7 @@ package hook
 //this would allow subsequent plugins in the chain to validate this client. If no plugin is able
 //to validate the client it gets automatically rejected.
 type AuthOnRegister struct {
-	MountPoint   string `json:"mountpoint",validate:"required"`
+	MountPoint   string `json:"mountpoint"`
 	ClientId     string `json:"client_id"`
 	Username     string `json:"username"`
 	Password     string `json:"password"`
