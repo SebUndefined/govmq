@@ -2,7 +2,6 @@ package hook
 
 import (
 	"encoding/json"
-	"fmt"
 	"testing"
 )
 
@@ -29,8 +28,6 @@ func TestOnClientWakeupSuccess(t *testing.T) {
 	body := "{\"client_id\":\"client_id\",\"mountpoint\":null}"
 	wh := OnClientWakeUp{}
 	err := json.Unmarshal([]byte(body), &wh)
-	fmt.Println(err)
-	fmt.Println(wh)
 	if err != nil {
 		t.Fatalf(`The body %s cannot be parsed. Error: %s`, body, err)
 	}
