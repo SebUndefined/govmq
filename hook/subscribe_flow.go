@@ -36,3 +36,19 @@ type OnSubscribeM5 struct {
 	OnSubscribe `json:",inline"`
 	Properties  interface{} `json:"properties"`
 }
+
+type OnUnSubscribe struct {
+	MountPoint string   `json:"mountpoint"`
+	ClientId   string   `json:"client_id"`
+	Username   *string  `json:"username"`
+	Topic      []string `json:"topic"`
+}
+
+type OnUnSubscribeM3 struct {
+	OnUnSubscribe `json:",inline"`
+}
+
+type OnUnSubscribeM5 struct {
+	OnUnSubscribe `json:",inline"`
+	Properties    interface{} `json:"properties"`
+}

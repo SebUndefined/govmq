@@ -46,6 +46,7 @@ type AuthOnRegisterM3 struct {
 //to validate the client it gets automatically rejected.
 type AuthOnRegisterM5 struct {
 	AuthOnRegister `json:",inline"`
+	CleanStart     bool        `json:"clean_start"`
 	Properties     interface{} `json:"properties"`
 }
 
@@ -83,25 +84,25 @@ type OnRegisterM5 struct {
 }
 
 // OnClientWakeUp : Once a new client was successfully authenticated and the above
-//described hooks have been called, the client attaches to its queue. If it is a returning client
-//using clean_session=false or if the client had previous sessions in the cluster,
-//this process could take a while. (As offline messages are migrated to a new node, existing
-//sessions are disconnected).
-//The on_client_wakeup (https://github.com/vernemq/vernemq_dev/blob/master/src/on_client_wakeup_hook.erl)
-//hook is called at the point where a queue has been successfully instantiated, possible offline messages
-//migrated, and potential duplicate sessions have been disconnected. In other words: when
-//the client has reached a completely initialized, normal state for accepting messages.
-//The hook is specified in the Erlang behaviour on_client_wakeup_hook available in the vernemq_dev repo.
+// described hooks have been called, the client attaches to its queue. If it is a returning client
+// using clean_session=false or if the client had previous sessions in the cluster,
+// this process could take a while. (As offline messages are migrated to a new node, existing
+// sessions are disconnected).
+// The on_client_wakeup (https://github.com/vernemq/vernemq_dev/blob/master/src/on_client_wakeup_hook.erl)
+// hook is called at the point where a queue has been successfully instantiated, possible offline messages
+// migrated, and potential duplicate sessions have been disconnected. In other words: when
+// the client has reached a completely initialized, normal state for accepting messages.
+// The hook is specified in the Erlang behaviour on_client_wakeup_hook available in the vernemq_dev repo.
 type OnClientWakeUp struct {
 	MountPoint string `json:"mountpoint"`
 	ClientId   string `json:"client_id"`
 }
 
 // OnClientOffline : This hook is called if an MQTT 3.1/3.1.1 client using clean_session=false
-//or an MQTT 5.0 client with a non-zero session_expiry_interval closes the connection or gets
-//disconnected by a duplicate client. The hook is specified in the Erlang behaviour on_client_offline_hook
-//(https://github.com/vernemq/vernemq_dev/blob/master/src/on_client_offline_hook.erl)
-//available in the vernemq_dev repo.
+// or an MQTT 5.0 client with a non-zero session_expiry_interval closes the connection or gets
+// disconnected by a duplicate client. The hook is specified in the Erlang behaviour on_client_offline_hook
+// (https://github.com/vernemq/vernemq_dev/blob/master/src/on_client_offline_hook.erl)
+// available in the vernemq_dev repo.
 type OnClientOffline struct {
 	MountPoint string `json:"mountpoint"`
 	ClientId   string `json:"client_id"`
