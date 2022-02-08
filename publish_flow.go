@@ -1,5 +1,10 @@
-package hook
+package govmq
 
+// ####################################################################
+// ######################### AUTH_ON_PUBLISH ##########################
+// ####################################################################
+
+// AuthOnPublish d
 type AuthOnPublish struct {
 	MountPoint string  `json:"mountpoint"`
 	ClientId   string  `json:"client_id"`
@@ -18,6 +23,10 @@ type AuthOnPublishM5 struct {
 	AuthOnPublish `json:",inline"`
 	Properties    interface{} `json:"properties"`
 }
+
+// ####################################################################
+// ############################ ON_PUBLISH ############################
+// ####################################################################
 
 type OnPublish struct {
 	MountPoint string  `json:"mountpoint"`
@@ -38,6 +47,10 @@ type OnPublishM5 struct {
 	Properties    interface{} `json:"properties"`
 }
 
+// ####################################################################
+// ######################### ON_OFFLINE_MESSAGE #######################
+// ####################################################################
+
 type OnOfflineMessage struct {
 	MountPoint string  `json:"mountpoint"`
 	ClientId   string  `json:"client_id"`
@@ -47,6 +60,10 @@ type OnOfflineMessage struct {
 	Payload    string  `json:"payload"`
 	Retain     bool    `json:"retain"`
 }
+
+// ####################################################################
+// ########################### ON_DELIVER #############################
+// ####################################################################
 
 type OnDeliver struct {
 	MountPoint string  `json:"mountpoint"`

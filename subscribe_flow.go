@@ -1,4 +1,8 @@
-package hook
+package govmq
+
+// ####################################################################
+// ######################## AUTH_ON_SUBSCRIBE #########################
+// ####################################################################
 
 type AuthOnSubscribe struct {
 	MountPoint string  `json:"mountpoint"`
@@ -21,6 +25,10 @@ type AuthOnSubscribeM5 struct {
 	Properties      interface{} `json:"properties"`
 }
 
+// ####################################################################
+// ########################## ON_SUBSCRIBE ############################
+// ####################################################################
+
 type OnSubscribe struct {
 	MountPoint string  `json:"mountpoint"`
 	ClientId   string  `json:"client_id"`
@@ -37,6 +45,11 @@ type OnSubscribeM5 struct {
 	Properties  interface{} `json:"properties"`
 }
 
+/*####################################################################
+########################## ON_UNSUBSCRIBE ##########################
+####################################################################*/
+
+// OnUnSubscribe The on_subscribe and on_subscribe_m5 hooks allow your plugin to get
 type OnUnSubscribe struct {
 	MountPoint string   `json:"mountpoint"`
 	ClientId   string   `json:"client_id"`

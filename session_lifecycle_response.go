@@ -1,4 +1,4 @@
-package builder
+package govmq
 
 type AuthOnRegisterResponse struct {
 	MountPoint     string `json:"mountpoint"`

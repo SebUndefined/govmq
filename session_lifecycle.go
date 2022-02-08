@@ -1,4 +1,8 @@
-package hook
+package govmq
+
+// ####################################################################
+// ######################### AUTH_ON_REGISTER #########################
+// ####################################################################
 
 // AuthOnRegister : The auth_on_register hook allow your plugin to grant or reject new client connections.
 //Moreover, it lets you exert fine-grained control over the configuration of the client session.
@@ -50,6 +54,10 @@ type AuthOnRegisterM5 struct {
 	Properties     interface{} `json:"properties"`
 }
 
+// ####################################################################
+// ############################ ON_AUTH_M5 ############################
+// ####################################################################
+
 // OnAuthM5 : The on_auth_m5 hook allows your plugin to implement MQTT enhanced authentication,
 // see Enhanced Authentication Flow (https://docs.vernemq.com/plugin-development/enhancedauthflow)
 type OnAuthM5 struct {
@@ -61,6 +69,10 @@ type OnAuthM5 struct {
 		AuthenticationMethod string `json:"p_authentication_method"`
 	} `json:"properties"`
 }
+
+// ####################################################################
+// ########################### ON_REGISTER ############################
+// ####################################################################
 
 // OnRegister : The on_register hook allow your plugin to get informed about
 //a newly authenticated client. The hook is specified in the Erlang behaviour on_register_hook
@@ -83,6 +95,10 @@ type OnRegisterM5 struct {
 	Properties interface{} `json:"properties"`
 }
 
+// ####################################################################
+// ######################### ON_CLIENT_WAKEUP #########################
+// ####################################################################
+
 // OnClientWakeUp : Once a new client was successfully authenticated and the above
 // described hooks have been called, the client attaches to its queue. If it is a returning client
 // using clean_session=false or if the client had previous sessions in the cluster,
@@ -98,6 +114,10 @@ type OnClientWakeUp struct {
 	ClientId   string `json:"client_id"`
 }
 
+// ####################################################################
+// ######################### ON_CLIENT_OFFLINE ########################
+// ####################################################################
+
 // OnClientOffline : This hook is called if an MQTT 3.1/3.1.1 client using clean_session=false
 // or an MQTT 5.0 client with a non-zero session_expiry_interval closes the connection or gets
 // disconnected by a duplicate client. The hook is specified in the Erlang behaviour on_client_offline_hook
@@ -107,6 +127,10 @@ type OnClientOffline struct {
 	MountPoint string `json:"mountpoint"`
 	ClientId   string `json:"client_id"`
 }
+
+// ####################################################################
+// ########################### ON_CLIENT_GONE #########################
+// ####################################################################
 
 // OnClientGone : This hook is called if an MQTT 3.1/3.1.1 client using clean_session=true or an MQTT 5.0
 //client with the session_expiry_interval set to zero closes the connection or gets disconnected by a
