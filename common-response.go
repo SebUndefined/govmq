@@ -8,6 +8,25 @@ type OKResponse struct {
 	Modifiers interface{} `json:"modifiers"`
 }
 
+func NewOKResponse(modifiers interface{}) *OKResponse {
+	return &OKResponse{Result: "ok", Modifiers: modifiers}
+}
+
+type EmptyResponse struct {
+}
+
+func NewEmptyResponse() *EmptyResponse {
+	return &EmptyResponse{}
+}
+
+type NextResponse struct {
+	Result string `json:"result"`
+}
+
+func NewNextResponse() *NextResponse {
+	return &NextResponse{Result: "next"}
+}
+
 // ErrorResponse an error response that satisfy VMQ Broker
 type ErrorResponse struct {
 	Result struct {
