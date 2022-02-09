@@ -4,7 +4,8 @@ type Response interface {
 }
 
 type OKResponse struct {
-	Result string `json:"result"`
+	Result    string      `json:"result"`
+	Modifiers interface{} `json:"modifiers"`
 }
 
 // ErrorResponse an error response that satisfy VMQ Broker
