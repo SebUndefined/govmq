@@ -24,3 +24,5 @@ func NewErrorResponse(result struct {
 type Builder interface {
 	Build() Response
 }
+
+type responseBuilderAction func(Response)
