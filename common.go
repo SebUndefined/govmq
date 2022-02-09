@@ -7,3 +7,8 @@ const (
 	Two       = 2
 	Three     = 3
 )
+
+type TopicConfig struct {
+	Topic string `json:"topic"`
+	QoS   QoS    `json:"qos"`
+}
