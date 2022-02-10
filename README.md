@@ -118,29 +118,60 @@ Work in progress
 
 ### auth_on_register
 
-|          Modifier          |  Type  | Description | 
-|:--------------------------:|:------:|:-----------:|
-|       allow_register       |  bool  |    test     |
-|       allow_publish        |  bool  |    test     |
-|      allow_subscribe       |  bool  |    test     |
-|     allow_unsubscribe      |  bool  |    test     |
-|      max_message_size      |  int   |    test     |
-|       subscriber_id        | string |    test     |
-|          username          | string |    test     |
-|      max_message_rate      |  int   |    test     |
-|   max_inflight_messages    |  int   |    test     |
-| shared_subscription_policy |  test  |    test     |
-|        upgrade_qos         |  bool  |    test     |
-|  allow_multiple_sessions   |  bool  |    test     |
-|    max_online_messages     |  int   |    test     |
-|    max_offline_messages    |  int   |    test     |
-|     queue_deliver_mode     |  test  |    test     |
-|         queue_type         |  test  |    test     |
-|       max_drain_time       |  int   |    test     |
-|  max_msgs_per_drain_step   |  int   |    test     |
+Potential modifiers
 
+|          Modifier          |         Property         |                      Type                       | Description | 
+|:--------------------------:|:------------------------:|:-----------------------------------------------:|:-----------:|
+|       allow_register       |      AllowRegister       |                      bool                       |    test     |
+|       allow_publish        |       AllowPublish       |                      bool                       |    test     |
+|      allow_subscribe       |      AllowSubscribe      |                      bool                       |    test     |
+|     allow_unsubscribe      |     AllowUnsubscribe     |                      bool                       |    test     |
+|      max_message_size      |      MaxMessageSize      |                       int                       |    test     |
+|       subscriber_id        |       SubscriberId       |                     string                      |    test     |
+|          username          |         Username         |                     string                      |    test     |
+|      max_message_rate      |      MaxMessageRate      |                       int                       |    test     |
+|   max_inflight_messages    |   MaxInflightMessages    |                       int                       |    test     |
+| shared_subscription_policy | SharedSubscriptionPolicy |                      test                       |    test     |
+|        upgrade_qos         |        UpgradeQoS        |                      bool                       |    test     |
+|  allow_multiple_sessions   |  AllowMultipleSessions   |                      bool                       |    test     |
+|    max_online_messages     |    maxOnlineMessages     |                       int                       |    test     |
+|    max_offline_messages    |    MaxOfflineMessages    |                       int                       |    test     |
+|     queue_deliver_mode     |     QueueDeliverMode     |                      test                       |    test     |
+|         queue_type         |        QueueType         |                      test                       |    test     |
+|       max_drain_time       |       MaxDrainTime       |                       int                       |    test     |
+|  max_msgs_per_drain_step   | MaxMessagesPerDrainStep  |                       int                       |    test     |
 
+### auth_on_register_M5
 
+Potential modifiers
 
+|          Modifier          |         Property         |                      Type                       | Description | 
+|:--------------------------:|:------------------------:|:-----------------------------------------------:|:-----------:|
+|       allow_register       |      AllowRegister       |                      bool                       |    test     |
+|       allow_publish        |       AllowPublish       |                      bool                       |    test     |
+|      allow_subscribe       |      AllowSubscribe      |                      bool                       |    test     |
+|     allow_unsubscribe      |     AllowUnsubscribe     |                      bool                       |    test     |
+|      max_message_size      |      MaxMessageSize      |                       int                       |    test     |
+|       subscriber_id        |       SubscriberId       |                     string                      |    test     |
+|          username          |         Username         |                     string                      |    test     |
+|      max_message_rate      |      MaxMessageRate      |                       int                       |    test     |
+|   max_inflight_messages    |   MaxInflightMessages    |                       int                       |    test     |
+| shared_subscription_policy | SharedSubscriptionPolicy |                      test                       |    test     |
+|        upgrade_qos         |        UpgradeQoS        |                      bool                       |    test     |
+|  allow_multiple_sessions   |  AllowMultipleSessions   |                      bool                       |    test     |
+|    max_online_messages     |    maxOnlineMessages     |                       int                       |    test     |
+|    max_offline_messages    |    MaxOfflineMessages    |                       int                       |    test     |
+|     queue_deliver_mode     |     QueueDeliverMode     |                      test                       |    test     |
+|         queue_type         |        QueueType         |                      test                       |    test     |
+|       max_drain_time       |       MaxDrainTime       |                       int                       |    test     |
+|  max_msgs_per_drain_step   | MaxMessagesPerDrainStep  |                       int                       |    test     |
+|         properties         |        Properties        | object ([see](#properties-auth-on-register-m5)) |    test     |
+
+#### Properties auth on register M5
+
+|         Modifier          |        Property         | Type | Description | 
+|:-------------------------:|:-----------------------:|:----:|:-----------:|
+|      p_user_property      |      UserProperty       | bool |    test     |
+| p_session_expiry_internal |  SessionExpiryInternal  | int  |    test     |
 
 
