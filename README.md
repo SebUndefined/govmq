@@ -26,10 +26,11 @@ govmq is a type and builder helper for the usage of [VerneMQ MQTT Broker](https:
     - [on_subscribe_m5](#on_subscribe_m5)
     - [on_unsubscribe_m5](#on_unsubscribe_m5)
     - [on_deliver_m5](#on_deliver_m5)
-  - [Builders](#builders)
+  - [Modifiers](#modifiers)
 
 # Installation 
 
+Work in progress
 
 # Usage
 
@@ -108,7 +109,37 @@ govmq is a type and builder helper for the usage of [VerneMQ MQTT Broker](https:
 
 ### on_deliver_m5
 
-## Builders
+## Modifiers
+
+| Modifier | Description | Type |  V1  | 
+|:--------:|:-----------:|:----:|:----:|
+|   Test   |    test     | test | test |
+
+
+### auth_on_register
+
+|          Modifier          |  Type  | Description | 
+|:--------------------------:|:------:|:-----------:|
+|       allow_register       |  bool  |    test     |
+|       allow_publish        |  bool  |    test     |
+|      allow_subscribe       |  bool  |    test     |
+|     allow_unsubscribe      |  bool  |    test     |
+|      max_message_size      |  int   |    test     |
+|       subscriber_id        | string |    test     |
+|          username          | string |    test     |
+|      max_message_rate      |  int   |    test     |
+|   max_inflight_messages    |  int   |    test     |
+| shared_subscription_policy |  test  |    test     |
+|        upgrade_qos         |  bool  |    test     |
+|  allow_multiple_sessions   |  bool  |    test     |
+|    max_online_messages     |  int   |    test     |
+|    max_offline_messages    |  int   |    test     |
+|     queue_deliver_mode     |  test  |    test     |
+|         queue_type         |  test  |    test     |
+|       max_drain_time       |  int   |    test     |
+|  max_msgs_per_drain_step   |  int   |    test     |
+
+
 
 
 
