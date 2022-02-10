@@ -1,14 +1,15 @@
 package govmq
 
-type Response interface {
+type Modifier interface {
+	ToString() string
 }
 
 type OKResponse struct {
-	Result    string      `json:"result"`
-	Modifiers interface{} `json:"modifiers"`
+	Result    string   `json:"result"`
+	Modifiers Modifier `json:"modifiers"`
 }
 
-func NewOKResponse(modifiers interface{}) *OKResponse {
+func NewOKResponse(modifiers Modifier) *OKResponse {
 	return &OKResponse{Result: "ok", Modifiers: modifiers}
 }
 
@@ -34,14 +35,12 @@ type ErrorResponse struct {
 	} `json:"result"`
 }
 
-func NewErrorResponse(result struct {
-	Error string `json:"error"`
-}) *ErrorResponse {
-	return &ErrorResponse{Result: result}
+func NewErrorResponse(m string) *ErrorResponse {
+	return &ErrorResponse{struct {
+		Error string `json:"error"`
+	}{Error: m}}
 }
 
 type Builder interface {
-	Build() Response
+	Build() Modifier
 }
-
-type responseBuilderAction func(Response)

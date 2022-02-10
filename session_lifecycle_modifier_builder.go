@@ -6,28 +6,28 @@ type AuthOnRegisterModifierBuilder struct {
 
 func (rb *AuthOnRegisterModifierBuilder) WithMountpoint(mountpoint string) *AuthOnRegisterModifierBuilder {
 	rb.actions = append(rb.actions, func(r *AuthOnRegisterModifier) {
-		r.MountPoint = mountpoint
+		r.MountPoint = &mountpoint
 	})
 	return rb
 }
 
 func (rb *AuthOnRegisterModifierBuilder) WithMaxMessageSize(m int) *AuthOnRegisterModifierBuilder {
 	rb.actions = append(rb.actions, func(r *AuthOnRegisterModifier) {
-		r.MaxMessageSize = m
+		r.MaxMessageSize = &m
 	})
 	return rb
 }
 
 func (rb *AuthOnRegisterModifierBuilder) WithMaxOnlineMessages(m int) *AuthOnRegisterModifierBuilder {
 	rb.actions = append(rb.actions, func(r *AuthOnRegisterModifier) {
-		r.MaxOnlineMessages = m
+		r.MaxOnlineMessages = &m
 	})
 	return rb
 }
 
 func (rb *AuthOnRegisterModifierBuilder) WithMaxOfflineMessages(m int) *AuthOnRegisterModifierBuilder {
 	rb.actions = append(rb.actions, func(r *AuthOnRegisterModifier) {
-		r.MaxOfflineMessages = m
+		r.MaxOfflineMessages = &m
 	})
 	return rb
 }
@@ -54,7 +54,7 @@ type AuthOnRegisterM3ResponseBuilder struct {
 
 func (rb *AuthOnRegisterM3ResponseBuilder) WithCleanSession(c bool) *AuthOnRegisterM3ResponseBuilder {
 	rb.actions = append(rb.actions, func(r *AuthOnRegisterM3Modifier) {
-		r.CleanSession = c
+		r.CleanSession = &c
 	})
 	return rb
 }
@@ -79,7 +79,7 @@ type AuthOnRegisterM5ResponseBuilder struct {
 
 func (rb *AuthOnRegisterM5ResponseBuilder) WithCleanStart(c bool) *AuthOnRegisterM5ResponseBuilder {
 	rb.actions = append(rb.actions, func(r *AuthOnRegisterM5Modifier) {
-		r.CleanStart = c
+		r.CleanStart = &c
 	})
 	return rb
 }
