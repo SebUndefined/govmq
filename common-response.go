@@ -1,9 +1,5 @@
 package govmq
 
-type Modifier interface {
-	ToString() string
-}
-
 type OKResponse struct {
 	Result    string   `json:"result"`
 	Modifiers Modifier `json:"modifiers"`
@@ -39,8 +35,4 @@ func NewErrorResponse(m string) *ErrorResponse {
 	return &ErrorResponse{struct {
 		Error string `json:"error"`
 	}{Error: m}}
-}
-
-type Builder interface {
-	Build() Modifier
 }

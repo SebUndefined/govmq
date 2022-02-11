@@ -2,23 +2,32 @@ package govmq
 
 import (
 	"encoding/json"
+	"fmt"
 	"testing"
 )
 
 func TestAuthOnRegisterM3ModifierBuilder(t *testing.T) {
-	b := AuthOnRegisterM3ResponseBuilder{}
+	b := &AuthOnRegisterM3ModifierBuilder{}
 	b.WithMaxMessageSize(65535).
 		WithMaxOfflineMessages(10000).
 		WithMountpoint("test")
 	r := NewOKResponse(b.Build())
-	body := "{\"result\":\"ok\",\"modifiers\":{\"max_message_size\":65535,\"max_offline_messages\":10000,\"retry_interval\":\"test\"}}"
-	var res []byte
-	res, err := json.Marshal(r)
-
-	if err != nil {
-		t.Fatalf(`The body %s cannot be parsed. Error: %s`, body, err)
-	}
-	if string(res) != body {
-		t.Fatalf(`The body %s is different of %s`, body, string(res))
-	}
+	fmt.Println(r)
+	mm := b.Build().MaxMessageSize
+	fmt.Println("&mm")
+	fmt.Println(*mm)
 }
+
+func TestAuthOnRegisterM5ModifierBuilder(t *testing.T) {
+	b := AuthOnRegisterM5ResponseBuilder{}
+	b.WithMaxMessageSize(65535).
+		WithMaxOfflineMessages(10000).
+		WithMountpoint("test")
+	r := NewOKResponse(b.Build())
+	s, _ := json.Marshal(r)
+	fmt.Println(r)
+	fmt.Println(string(s))
+}
+
+// Add a flag in builder that can identify the builder
+// Put if in

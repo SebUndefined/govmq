@@ -47,25 +47,22 @@ func (rb *AuthOnRegisterModifierBuilder) Build() *AuthOnRegisterModifier {
 	return &r
 }
 
-type AuthOnRegisterM3ResponseBuilder struct {
+type AuthOnRegisterM3ModifierBuilder struct {
 	AuthOnRegisterModifierBuilder
 	actions []func(response *AuthOnRegisterM3Modifier)
 }
 
-func (rb *AuthOnRegisterM3ResponseBuilder) WithCleanSession(c bool) *AuthOnRegisterM3ResponseBuilder {
+func (rb *AuthOnRegisterM3ModifierBuilder) WithCleanSession(c bool) *AuthOnRegisterM3ModifierBuilder {
 	rb.actions = append(rb.actions, func(r *AuthOnRegisterM3Modifier) {
 		r.CleanSession = &c
 	})
 	return rb
 }
 
-func (rb *AuthOnRegisterM3ResponseBuilder) Build() *AuthOnRegisterM3Modifier {
-	r := AuthOnRegisterModifier{}
-	for _, a := range rb.AuthOnRegisterModifierBuilder.actions {
-		a(&r)
+func (rb *AuthOnRegisterM3ModifierBuilder) Build() *AuthOnRegisterM3Modifier {
+	rM3 := AuthOnRegisterM3Modifier{
+		AuthOnRegisterModifier: rb.AuthOnRegisterModifierBuilder.Build(),
 	}
-	rM3 := AuthOnRegisterM3Modifier{}
-	rM3.AuthOnRegisterModifier = r
 	for _, a := range rb.actions {
 		a(&rM3)
 	}
@@ -85,12 +82,9 @@ func (rb *AuthOnRegisterM5ResponseBuilder) WithCleanStart(c bool) *AuthOnRegiste
 }
 
 func (rb *AuthOnRegisterM5ResponseBuilder) Build() *AuthOnRegisterM5Modifier {
-	r := AuthOnRegisterModifier{}
-	for _, a := range rb.AuthOnRegisterModifierBuilder.actions {
-		a(&r)
+	rM5 := AuthOnRegisterM5Modifier{
+		AuthOnRegisterModifier: rb.AuthOnRegisterModifierBuilder.Build(),
 	}
-	rM5 := AuthOnRegisterM5Modifier{}
-	rM5.AuthOnRegisterModifier = r
 	for _, a := range rb.actions {
 		a(&rM5)
 	}

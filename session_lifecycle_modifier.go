@@ -8,9 +8,14 @@ type AuthOnRegisterModifier struct {
 	MaxOfflineMessages       *int        `json:"max_offline_messages,omitempty"`
 }
 
+func (a AuthOnRegisterModifier) ToString() string {
+	//TODO implement me
+	return "Temporary"
+}
+
 type AuthOnRegisterM3Modifier struct {
-	AuthOnRegisterModifier `json:",inline"`
-	CleanSession           *bool `json:"clean_session,omitempty"`
+	*AuthOnRegisterModifier `json:",inline"`
+	CleanSession            *bool `json:"clean_session,omitempty"`
 }
 
 func (a AuthOnRegisterM3Modifier) ToString() string {
@@ -19,9 +24,14 @@ func (a AuthOnRegisterM3Modifier) ToString() string {
 }
 
 type AuthOnRegisterM5Modifier struct {
-	AuthOnRegisterModifier `json:",inline"`
-	CleanStart             *bool `json:"clean_start,omitempty"`
-	Properties             struct {
+	*AuthOnRegisterModifier `json:",inline"`
+	CleanStart              *bool `json:"clean_start,omitempty"`
+	Properties              struct {
 		SessionExpiryInterval int `json:"p_session_expiry_interval,omitempty"`
 	} `json:"properties"`
+}
+
+func (a AuthOnRegisterM5Modifier) ToString() string {
+	//TODO implement me
+	return "Temporary"
 }

@@ -1,5 +1,13 @@
 package govmq
 
+type Builder interface {
+	Build() Modifier
+}
+
+type Modifier interface {
+	ToString() string
+}
+
 type QoS int64
 
 const (
