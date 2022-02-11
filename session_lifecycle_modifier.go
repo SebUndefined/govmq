@@ -8,6 +8,11 @@ type AuthOnRegisterModifier struct {
 	MaxOfflineMessages       *int        `json:"max_offline_messages,omitempty"`
 }
 
+func (a *AuthOnRegisterModifier) SetMountpoint(m string) *AuthOnRegisterModifier {
+	a.MountPoint = &m
+	return a
+}
+
 func (a AuthOnRegisterModifier) ToString() string {
 	//TODO implement me
 	return "Temporary"
